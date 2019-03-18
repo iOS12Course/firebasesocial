@@ -37,13 +37,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1l7-O4-Ihb" customClass="GIDSignInButton">
+                                <rect key="frame" x="20" y="40" width="335" height="40"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="MTQ-N9-yY6"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="googleSigninTapped:" destination="BYZ-38-t0r" eventType="valueChanged" id="dko-MU-hSU"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="8tb-7t-eLM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="4e4-77-hKM"/>
                             <constraint firstItem="5yo-34-AR3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Bnh-zH-ZC3"/>
+                            <constraint firstItem="1l7-O4-Ihb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="MCA-3q-TwE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5yo-34-AR3" secondAttribute="trailing" constant="20" id="U0r-Ws-198"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8tb-7t-eLM" secondAttribute="bottom" constant="20" id="ZOO-at-obe"/>
+                            <constraint firstItem="1l7-O4-Ihb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="bhi-FE-zUT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1l7-O4-Ihb" secondAttribute="trailing" constant="20" id="eME-7a-wdU"/>
                             <constraint firstItem="8tb-7t-eLM" firstAttribute="top" secondItem="5yo-34-AR3" secondAttribute="bottom" constant="8" id="jYX-Ev-7KS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8tb-7t-eLM" secondAttribute="trailing" constant="20" id="wry-KR-Fve"/>
                         </constraints>
@@ -55,6 +68,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="53.600000000000001" y="26.53673163418291"/>
         </scene>
     </scenes>
 </document>
