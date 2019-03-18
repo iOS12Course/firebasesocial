@@ -28,7 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         if let error = error {
             debugPrint("Could not login with google. : \(error)")
         } else {
-            print("Logged in!")
+            guard let controller = GIDSignIn.sharedInstance()?.uiDelegate as? ViewController else { return }
+            guard let authentication = user.authentication else { return }
+            let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+            controller.firebaseLogin(credential)
+            
         }
     }
 }
