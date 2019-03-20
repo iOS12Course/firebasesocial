@@ -32,7 +32,14 @@
 				<string>com.googleusercontent.apps.674248700612-n1ijj6dict447o5elr0rc3g6qbkcimfa</string>
 			</array>
 		</dict>
-		<dict/>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>twitterkit-GQ4rHQ5xtzwytQHiFV13KxWQa</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
@@ -63,5 +70,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>consumerKey</key>
+	<string>GQ4rHQ5xtzwytQHiFV13KxWQa</string>
+	<key>consumerSecret</key>
+	<string>qYxPLtaZ986Z7H70XwqytFoqE1Gw2UyaFCIswOxIsqMqZvcgAe</string>
 </dict>
 </plist>

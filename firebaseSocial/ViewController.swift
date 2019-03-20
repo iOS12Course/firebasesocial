@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import FBSDKLoginKit
+import TwitterKit
 
 class ViewController: UIViewController , GIDSignInUIDelegate, FBSDKLoginButtonDelegate {
    
@@ -19,6 +20,7 @@ class ViewController: UIViewController , GIDSignInUIDelegate, FBSDKLoginButtonDe
     @IBOutlet weak var userInfoLbl: UILabel!
     @IBOutlet weak var facebookLoginBtn: FBSDKLoginButton!
     
+    @IBOutlet weak var twitterBtnView: UIView!
     //Variables
     let loginManager = FBSDKLoginManager()
     
@@ -27,6 +29,20 @@ class ViewController: UIViewController , GIDSignInUIDelegate, FBSDKLoginButtonDe
         GIDSignIn.sharedInstance()?.uiDelegate = self
         facebookLoginBtn.delegate = self
         facebookLoginBtn.readPermissions = ["email"]
+        
+        let loginTwitterBtn = TWTRLogInButton { (session, error) in
+            if let error = error {
+                debugPrint("Could not login twitter", error)
+            }
+            
+            if let session = session {
+                let credential = TwitterAuthProvider.credential(withToken: session.authToken, secret: session.authTokenSecret)
+                self.firebaseLogin(credential)
+            }
+        }
+        loginTwitterBtn.center.x = twitterBtnView.center.x
+        twitterBtnView.addSubview(loginTwitterBtn)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -76,6 +92,22 @@ class ViewController: UIViewController , GIDSignInUIDelegate, FBSDKLoginButtonDe
                 print("Facebook login was cancelled")
             } else {
                 let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+                self.firebaseLogin(credential)
+            }
+        }
+    }
+    
+    
+    //Twitter
+    
+    @IBAction func customTwitterTapped(_ sender: Any) {
+        TWTRTwitter.sharedInstance().logIn { (session, error) in
+            if let error = error {
+                debugPrint("Could not login twitter", error)
+            }
+            
+            if let session = session {
+                let credential = TwitterAuthProvider.credential(withToken: session.authToken, secret: session.authTokenSecret)
                 self.firebaseLogin(credential)
             }
         }
